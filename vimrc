@@ -1,6 +1,8 @@
 let mapleader = ","
 let maplocalleader = "\\"
 
+execute pathogen#infect()
+
 filetype plugin indent on
 
 set nocompatible
