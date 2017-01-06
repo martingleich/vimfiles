@@ -75,8 +75,8 @@ nnoremap <leader>N :setlocal number!<cr>
 
 " Insert empty line
 nnoremap <leader>j a<cr><Esc>k$
-" }o "Hello" }
-
+"}}}
+"
 " Basic configuration {{{
 " Allow free backspacing
 set backspace=indent,eol,start
@@ -115,8 +115,6 @@ set listchars=tab:→\
 "}}}
 
 syntax on
-set background=dark
-colorscheme solarized
 
 augroup filetype_vim
 	au!
