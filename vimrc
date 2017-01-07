@@ -5,6 +5,27 @@ execute pathogen#infect()
 
 filetype plugin indent on
 
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
+set synmaxcol=800
+
+set backup
+set noswapfile
+
+set backupdir=~/vimfiles/tmp/backup/
+set undodir=~/vimfiles/tmp/undo/
+
+if !isdirectory(expand(&backupdir))
+	call mkdir(expand(&backupdir), "p")
+endif
+
+if !isdirectory(expand(&undodir))
+	call mkdir(expand(&undodir), "p")
+endif
+
+set undofile
 set nocompatible
 set autoindent
 set showmode
@@ -21,22 +42,31 @@ set nocursorline
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" CTRL-] is a really bad combination on german keyboards
+nnoremap <leader>f <C-]>
+
+nnoremap K :q<CR>
+
+nnoremap <c-s> :%s/
+vnoremap <c-s> :s/
+
+nnoremap <leader>W :set wrap!<cr>
+
 nnoremap j gj
 nnoremap k gk
 
 " Clear screen on console mode
 if has('win32')
-"	nnoremap :! :!cls& 
+	nnoremap :! :!cls& 
+else
+	nnoremap :! :!clear&
 endif
 
 " Map jk to Escape
 inoremap jk <esc>
 inoremap <esc> <nop>
 
-" Map F1 to Escape
-inoremap <F1> <esc>
-nnoremap <F1> <esc>
-vnoremap <F1> <esc>
+nnoremap s :w<cr>
 
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
@@ -139,7 +169,11 @@ function! SetPythonOptions()
 	endif
 
 	if has('win32')
-		nnoremap <leader><F5> execute ":w<cr>:!cls&" . g:python_command . "\"%:p\"<cr><cr>"
+		nnoremap <leader><F5>
+		 \ execute ":w<cr>:!cls&" . g:python_command . "\"%:p\"<cr><cr>"
+	else
+		nnoremap <leader><F5>
+		 \ execute ":w<cr>:!clear&&" . g:python_command . "\"%:p\"<cr><cr>"
 	endif
 endfunction
 
