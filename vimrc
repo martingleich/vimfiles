@@ -37,6 +37,10 @@ set scrolloff=3
 set nocursorcolumn
 set nocursorline
 
+" Enable powershell as shell
+"set shell=powershell
+"set shellcmdflag=-command
+
 " Mappings {{{
 " Map vimrc edit shortcuts.
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -56,10 +60,8 @@ nnoremap j gj
 nnoremap k gk
 
 " Clear screen on console mode
-if has('win32')
+if &shell =~ "cmd.exe"
 	nnoremap :! :!cls& 
-else
-	nnoremap :! :!clear&
 endif
 
 " Map jk to Escape
@@ -164,16 +166,10 @@ function! SetPythonOptions()
 	setlocal foldmethod=indent
 	normal! zr
 
-	if !exists("g:python_command")
-		let g:python_command = "python"
-	endif
-
 	if has('win32')
-		nnoremap <leader><F5>
-		 \ execute ":w<cr>:!cls&" . g:python_command . "\"%:p\"<cr><cr>"
+		nnoremap <leader><F5> :w<cr>:!cls&python "%:p"<cr><cr>
 	else
-		nnoremap <leader><F5>
-		 \ execute ":w<cr>:!clear&&" . g:python_command . "\"%:p\"<cr><cr>"
+		nnoremap <leader><F5> :w<cr>:!clear&&python "%:p"<cr>
 	endif
 endfunction
 
