@@ -37,6 +37,11 @@ set scrolloff=3
 set nocursorcolumn
 set nocursorline
 
+" Disable shortcuts for ex mode
+" I never use them and just hit them accidentally.
+map q: <nop>
+nnoremap Q <nop>
+
 " Enable powershell as shell
 "set shell=powershell
 "set shellcmdflag=-command
@@ -51,8 +56,8 @@ nnoremap <leader>f <C-]>
 
 nnoremap K :q<CR>
 
-nnoremap <c-s> :%s/
-vnoremap <c-s> :s/
+nnoremap <leader>s :%s/
+vnoremap <leader>s :s/
 
 nnoremap <leader>W :set wrap!<cr>
 
@@ -103,12 +108,12 @@ function! QuickfixToggle()
 	endif
 endfunction
 
-
-" Line numbers
-nnoremap <leader>N :setlocal number!<cr>
-
 " Insert empty line
 nnoremap <leader>j a<cr><Esc>k$
+
+" p will not copy previous string.
+xnoremap p pgvy
+
 "}}}
 "
 " Basic configuration {{{
