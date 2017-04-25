@@ -39,7 +39,6 @@ set nocursorline
 
 " Disable shortcuts for ex mode
 " I never use them and just hit them accidentally.
-map q: <nop>
 nnoremap Q <nop>
 
 " Enable powershell as shell
