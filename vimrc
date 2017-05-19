@@ -95,7 +95,6 @@ nnoremap <silent> <S-F8> :cprev<cr>
 nnoremap <leader>q :call QuickfixToggle()<cr>
 let g:quickfix_is_open = 0
 function! QuickfixToggle()
-	echom 'Hello'
 	if g:quickfix_is_open
 		cclose
 		let g:quickfix_is_open = 0
