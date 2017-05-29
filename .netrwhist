@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='C:/Users/marti/Documents/Synced/Notes'
+let g:netrw_dirhist_2='C:/Users/marti'
+let g:netrw_dirhist_3='C:/Users/marti/.VirtualBox'

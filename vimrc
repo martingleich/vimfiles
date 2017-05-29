@@ -143,7 +143,7 @@ vnoremap / /\v
 set ignorecase smartcase
 
 " Long line handling
-set wrap
+set nowrap
 
 " Invisible characters
 set list
