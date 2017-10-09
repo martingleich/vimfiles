@@ -91,6 +91,9 @@ nnoremap <silent> <Space> :noh<cr>
 nnoremap <silent> <F8> :cnext<cr>
 nnoremap <silent> <S-F8> :cprev<cr>
 
+" Type make command
+nnoremap <leader>m :make -C build 
+
 " Quickfix window
 nnoremap <leader>q :call QuickfixToggle()<cr>
 let g:quickfix_is_open = 0
