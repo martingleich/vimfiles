@@ -51,15 +51,23 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " CTRL-] is a really bad combination on german keyboards
-nnoremap <leader>f <C-]>
+" Follow tag
+nnoremap ü <C-]> 
+" Unfollow tag
+nnoremap Ü <C-T>
+
+nnoremap ä <C-^>
+
 
 nnoremap K :q<CR>
 
+" Map search commands to leader s
 nnoremap <leader>s :%s/
 vnoremap <leader>s :s/
 
-nnoremap <leader>W :set wrap!<cr>
+"nnoremap <leader>W :set wrap!<cr>
 
+" Use global movements(broken lines behave slide normal ones
 nnoremap j gj
 nnoremap k gk
 
@@ -70,11 +78,13 @@ endif
 
 " Map jk to Escape
 inoremap jk <esc>
-inoremap <esc> <nop>
 
 nnoremap s :w<cr>
 
+" Make vertical split of current window
 nnoremap <leader>w <C-w>v<C-w>l
+
+" Make through windows with Ctrl + movement key
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -151,6 +161,10 @@ set nowrap
 " Invisible characters
 set list
 set listchars=tab:→\ 
+
+" Hightlight lines with over 90 characters.
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%91v.\+/
 
 "}}}
 
