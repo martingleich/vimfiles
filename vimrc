@@ -50,24 +50,26 @@ nnoremap Q <nop>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+nnoremap - ;
+nnoremap _ ,
+
 " CTRL-] is a really bad combination on german keyboards
 " Follow tag
 nnoremap ü <C-]> 
 " Unfollow tag
 nnoremap Ü <C-T>
-
+" Edit alternate file
 nnoremap ä <C-^>
-
 
 nnoremap K :q<CR>
 
-" Map search commands to leader s
+" Map subsititue commands to leader s
 nnoremap <leader>s :%s/
 vnoremap <leader>s :s/
 
 "nnoremap <leader>W :set wrap!<cr>
 
-" Use global movements(broken lines behave slide normal ones
+" Use global movements(broken lines behave like normal ones)
 nnoremap j gj
 nnoremap k gk
 
@@ -79,6 +81,7 @@ endif
 " Map jk to Escape
 inoremap jk <esc>
 
+" Save with s
 nnoremap s :w<cr>
 
 " Make vertical split of current window
@@ -122,7 +125,7 @@ endfunction
 " Insert empty line
 nnoremap <leader>j a<cr><Esc>k$
 
-" p will not copy previous string.
+" p will not yank overwritten string.
 xnoremap p pgvy
 
 "}}}
@@ -151,8 +154,8 @@ set statusline +=%l/%L    "CurrentLinenumber / Total linenumber
 " Config search
 set hlsearch incsearch showmatch
 set gdefault
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 set ignorecase smartcase
 
 " Long line handling
